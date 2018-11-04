@@ -10,6 +10,7 @@ class ForecastResult
   def weather_forecast
     data = darksky_service.get_forecast(coordinates)
     Forecast.new(data)
+    require "pry"; binding.pry
   end
   
   private 
