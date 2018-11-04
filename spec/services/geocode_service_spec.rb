@@ -15,3 +15,4 @@ describe GeocodeService do
     expect(location_coordinates).to eq({:lat=>39.7392358, :lng=>-104.990251})
   end 
 end
+
