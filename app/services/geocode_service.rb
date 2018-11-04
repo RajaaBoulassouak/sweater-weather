@@ -3,7 +3,7 @@ class GeocodeService
   location = 'denver,co'
   
   def get_coordinates(location)
-    data = get_json("/maps/api/geocode/json?address=denver,co&key=AIzaSyCT0RfXhhVes9-vJvtvzIPSRjqAgeS-Qpg")
+    data = get_json("/maps/api/geocode/json?address=#{location},co&key=#{ENV['google_api_key']}")
     data[:results].first[:geometry][:location]
   end
   
