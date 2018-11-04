@@ -12,7 +12,7 @@ describe GeocodeService do
 
     location_coordinates = service.get_coordinates("denver,co")
 
-    expect(location_coordinates).to eq({:lat=>39.7392358, :lng=>-104.990251})
+    expect(location_coordinates[:results].first[:geometry][:location]).to eq({:lat=>39.7392358, :lng=>-104.990251})
   end 
 end
 
