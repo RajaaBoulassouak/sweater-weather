@@ -7,10 +7,10 @@ class ForecastResult
     data[:results].first[:geometry][:location]
   end
   
-  def lat_and_long
-    lat = coordinates[:lat]
-    long = coordinates[:lng]
-  end
+  # def weather_forecast
+  #   data = darksky_service.get_forecast(coordinates)
+  #   Forecast.new(data)
+  # end
   
   private 
   
