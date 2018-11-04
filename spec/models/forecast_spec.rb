@@ -6,5 +6,4 @@ describe Forecast do
 
     expect(geocode_result).to be_a(Forecast)
   end
-
 end
