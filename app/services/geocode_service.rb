@@ -1,13 +1,18 @@
 class GeocodeService 
   
-  location = 'denver,co'
-  
   def get_coordinates(location)
-    # require "pry"; binding.pry
-   conn = Faraday.new(:url => "https://maps.googleapis.com") do |faraday|
-     faraday.headers["X-API-KEY"] = ENV["google_api_key"]
-     faraday.adapter Faraday.default_adapter
-   end
+    get_json("/maps/api/geocode/json?address=#{location},co&key=#{ENV['google_api_key']}")
+  end
   
+  private
+  
+  def conn 
+    Faraday.new(:url => "https://maps.googleapis.com") do |faraday|
+      faraday.adapter Faraday.default_adapter
+    end
   end 
+
+  def get_json(url)
+    JSON.parse(conn.get(url).body, symbolize_names: true)
+  end
 end 
