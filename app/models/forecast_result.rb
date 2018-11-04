@@ -1,7 +1,5 @@
 class ForecastResult 
   
-  
-  
   def coordinates
     location = 'denver,co'
     data = geocode_service.get_coordinates(location)
