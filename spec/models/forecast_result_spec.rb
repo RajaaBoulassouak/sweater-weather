@@ -9,13 +9,13 @@ describe ForecastResult do
   
   describe 'Instance Methods' do
     it 'has coordinates' do 
-      location = 'denver,co'
       forecast_result = ForecastResult.new
       
-      expect(forecast_result.coordinates).to eq({:lat=>39.7392358, :lng=>-104.990251})
+      expect(forecast_result.coordinates).to eq({:lat=>39.5500507, :lng=>-105.7820674})
     end 
     
     it 'has weather forecast data' do 
+      location = 'denver,co'
       forecast_result = ForecastResult.new
       
       expect(forecast_result.weather_forecast).to be_a(Forecast) 
