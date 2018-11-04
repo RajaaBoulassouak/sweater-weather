@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Forecast do
   it 'exists' do
-    data = {  current: "some data",
+    data = {  currently: "some data",
               hourly: {data: "hourly data"},
               daily: {data: "daily data"}
            }

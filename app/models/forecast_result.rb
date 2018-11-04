@@ -1,8 +1,9 @@
 class ForecastResult 
   
-  location = 'denver,co'
+  
   
   def coordinates
+    location = 'denver,co'
     data = geocode_service.get_coordinates(location)
     data[:results].first[:geometry][:location]
   end
@@ -10,7 +11,6 @@ class ForecastResult
   def weather_forecast
     data = darksky_service.get_forecast(coordinates)
     Forecast.new(data)
-    require "pry"; binding.pry
   end
   
   private 

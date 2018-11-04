@@ -1,7 +1,7 @@
 class Forecast 
 
   def initialize(data)
-    @current = data[:currently]
+    @currently = data[:currently]
     @hourly = data[:hourly][:data]
     @daily = data[:daily][:data]
   end
