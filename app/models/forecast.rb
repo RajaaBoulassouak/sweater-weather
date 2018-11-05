@@ -23,7 +23,7 @@ class Forecast
                         end
                       end
                       hours_hash = hash.map do |key, value|
-                        if hash[:time]
+                        if key == :time
                           DateTime.strptime(value.to_s,'%s')
                         else
                           hash[key] = value
@@ -42,7 +42,7 @@ class Forecast
                         end 
                       end 
                       days_hash = hash.map do |key, value|
-                        if hash[:time]
+                        if key == :time
                           DateTime.strptime(value.to_s,'%s')
                         else
                           hash[key] = value
