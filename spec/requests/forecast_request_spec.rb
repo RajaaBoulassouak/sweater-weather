@@ -8,5 +8,8 @@ describe 'Forecast API' do
     expect(response).to be_successful
     forecast_data = JSON.parse(response.body)
     expect(forecast_data).to have_key('currently')
+    expect(forecast_data).to have_key('hourly')
+    expect(forecast_data).to have_key('daily')
+
   end
 end
