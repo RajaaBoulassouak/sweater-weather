@@ -1,4 +1,4 @@
-class ForecastResult 
+class ForecastFacade 
   
   def initialize(params = {})
     @params = params
