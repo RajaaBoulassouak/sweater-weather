@@ -1,8 +1,11 @@
 class ForecastResult 
   
+  def initialize(params = {})
+    @params = params
+  end
+  
   def coordinates
-    location = 'denver,co'
-    data = geocode_service.get_coordinates(location)
+    data = geocode_service.get_coordinates(@params)
     data[:results].first[:geometry][:location]
   end
   
