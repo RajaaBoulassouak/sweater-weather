@@ -11,13 +11,14 @@ class ForecastFacade
   
   def weather_forecast
     data = darksky_service.get_forecast(coordinates)
+    Forecast.new(data)
   end
   
-  def weather_gifs
-    summary = "Mostly sunny in the morning"
-    data = giphy_service.get_gifs(summary)
-    # data[:data].first[:url]
-  end
+  # def weather_gifs
+  #   summary = "Mostly sunny in the morning"
+  #   data = giphy_service.get_gifs(summary)
+  #   # data[:data].first[:url]
+  # end
   
   private 
   
@@ -27,9 +28,5 @@ class ForecastFacade
   
   def darksky_service
     DarkskyService.new
-  end
-  
-  def giphy_service
-    GiphyService.new
   end
 end
