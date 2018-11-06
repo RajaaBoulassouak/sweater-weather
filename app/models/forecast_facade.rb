@@ -9,10 +9,9 @@ class ForecastFacade
     data[:results].first[:geometry][:location]
   end
   
-  def weather_forecast
-    data = darksky_service.get_forecast(coordinates)
-    Forecast.new(data)
-  end
+  
+  def weather_gifs
+    data = giphy_service.get_gifs()
   
   private 
   
