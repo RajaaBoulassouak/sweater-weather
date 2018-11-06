@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe ForecastFacade do
   it 'exists' do
-    location = 'denver,co'
-    forecast_facade = ForecastFacade.new(location)
+    forecast_facade = ForecastFacade.new
 
     expect(forecast_facade).to be_a(ForecastFacade)
   end
