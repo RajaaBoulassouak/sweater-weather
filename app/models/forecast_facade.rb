@@ -14,12 +14,6 @@ class ForecastFacade
     Forecast.new(data)
   end
   
-  # def weather_gifs
-  #   summary = "Mostly sunny in the morning"
-  #   data = giphy_service.get_gifs(summary)
-  #   # data[:data].first[:url]
-  # end
-  
   private 
   
   def geocode_service 
