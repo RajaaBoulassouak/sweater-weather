@@ -14,41 +14,33 @@ class Forecast
     @visibility  =  data[:currently][:visibility]
     @uv_index    =  data[:currently][:uvIndex]
     @hourly      =  []
-                    
+
                     data[:hourly][:data].map do |hour|
-                      hash = {}
+                      hour_hash = {}
                       hour.map do |key, value|
-                        if key == :time || key == :icon || key == :temperature
-                          hash[key] = value
+                        if key == :icon || key == :temperature
+                          hour_hash[key] = value
+                        elsif
+                          key == :time
+                            hour_hash[key] = DateTime.strptime(value.to_s,'%s')
                         end
                       end
-                      hours_hash = hash.map do |key, value|
-                        if key == :time
-                          DateTime.strptime(value.to_s,'%s')
-                        else
-                          hash[key] = value
-                        end
-                      end
-                      @hourly << hours_hash
+                      @hourly << hour_hash
                     end
                     
     @daily       =  []
                   
                     data[:daily][:data].map do |day|
-                      hash = {}
+                      day_hash = {}
                       day.map do |key, value|
-                        if key == :time || key == :summary || key == :icon || key == :precipProbability || key == :precipType || key == :temperatureHigh || key == :temperatureLow
-                          hash[key] = value
+                        if key == :summary || key == :icon || key == :precipProbability || key == :precipType || key == :temperatureHigh || key == :temperatureLow
+                          day_hash[key] = value
+                        elsif
+                          key == :time
+                            day_hash[key] = DateTime.strptime(value.to_s,'%s')
                         end 
                       end 
-                      days_hash = hash.map do |key, value|
-                        if key == :time
-                          DateTime.strptime(value.to_s,'%s')
-                        else
-                          hash[key] = value
-                        end
-                      end
-                      @daily << days_hash
+                      @daily << day_hash
                     end
-  end  
+  end 
 end 
