@@ -23,8 +23,16 @@ class ForecastFacade
   end
   
   def weather_gifs
-    summary = "Mostly sunny in the morning"
-    data = giphy_service.get_gifs(summary)
+    image_array = []
+    weather_forecast.map do |hash|
+      hash.map do |key, value|
+        if key == :summary
+          gif = giphy_service.get_gifs(key)
+        end
+        image_array << gif 
+      end 
+    end
+    image_array.compact
   end
   
   private 
