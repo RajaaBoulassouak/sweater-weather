@@ -23,27 +23,26 @@ class ForecastFacade
   end
   
   def weather_gifs
-    image_array = []
+    gif_data_array = []
     weather_forecast.map do |hash|
       hash.map do |key, value|
         if key == :summary
           gif = giphy_service.get_gifs(key)
         end
-        image_array << gif 
+        gif_data_array << gif 
       end 
     end
     urls_array = []
-    image_array.compact.map do |hash|
+    gif_data_array.compact.map do |hash|
       url_hash = {}
       hash.map do |key, value|
         if key == :data 
           url_hash[:url] = hash[:data].first[:url]
         end 
-        urls_array << url_hash
       end 
+      urls_array << url_hash
     end 
-    require "pry"; binding.pry
-    urls_array
+    images = weather_forecast.zip(urls_array)
   end
   
   private 
