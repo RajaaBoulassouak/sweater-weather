@@ -1,7 +1,7 @@
 class GeocodeService 
   
   def get_coordinates(location)
-    get_json("/maps/api/geocode/json?address=#{location},co&key=#{ENV['google_api_key']}")
+    get_json("/maps/api/geocode/json?address=#{location}&key=#{ENV['google_api_key']}")
   end
   
   private

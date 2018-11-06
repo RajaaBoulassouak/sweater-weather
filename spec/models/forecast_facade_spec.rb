@@ -8,15 +8,16 @@ describe ForecastFacade do
   end
   
   describe 'Instance Methods' do
-    it 'has coordinates' do 
-      forecast_facade = ForecastFacade.new
+    it 'has coordinates' do
+      location = 'denver,co' 
+      forecast_facade = ForecastFacade.new(location)
       
-      expect(forecast_facade.coordinates).to eq({:lat=>39.5500507, :lng=>-105.7820674})
+      expect(forecast_facade.coordinates).to eq({:lat=>39.7392358, :lng=>-104.990251})
     end 
     
     it 'has weather forecast data' do 
       location = 'denver,co'
-      forecast_facade = ForecastFacade.new
+      forecast_facade = ForecastFacade.new(location)
 
       expect(forecast_facade.weather_forecast).to be_a(Forecast) 
     end
