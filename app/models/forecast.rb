@@ -36,6 +36,7 @@ class Forecast
       end
       hours_array << hour_hash
     end
+    hours_array
   end
   
   def daily_forecast(data)
@@ -52,5 +53,6 @@ class Forecast
       end 
       days_array << day_hash
     end
+    days_array
   end
 end 
