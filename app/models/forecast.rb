@@ -12,6 +12,7 @@ class Forecast
     @humidity    =  data[:currently][:humidity]
     @visibility  =  data[:currently][:visibility]
     @uv_index    =  data[:currently][:uvIndex]
+    @today       =  data[:hourly][:summary]
     @hourly      =  hourly_forecast(data)
     @daily       =  daily_forecast(data)            
   end 
