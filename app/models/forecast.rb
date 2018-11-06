@@ -1,20 +1,22 @@
 class Forecast 
 
   def initialize(data)
+    @hourly      =  hourly_forecast(data)
+    @daily       =  daily_forecast(data)         
     @latitude    =  data[:latitude]
     @longitude   =  data[:longitude]
     @timezone    =  data[:timezone]
+    @time        =  converted_time(data)
     @summary     =  data[:currently][:summary]
     @icon        =  data[:currently][:icon]
     @temperature =  data[:currently][:temperature]
-    @time        =  converted_time(data)
     @feel_slike  =  data[:currently][:apparentTemperature]
     @humidity    =  data[:currently][:humidity]
     @visibility  =  data[:currently][:visibility]
     @uv_index    =  data[:currently][:uvIndex]
     @today       =  data[:hourly][:summary]
-    @hourly      =  hourly_forecast(data)
-    @daily       =  daily_forecast(data)            
+    @high        =  @daily.first[:temperatureHigh]
+    @low         =  @daily.first[:temperatureLow]
   end 
   
   def converted_time(data)
@@ -36,6 +38,7 @@ class Forecast
       end
       hours_array << hour_hash
     end
+    hours_array
   end
   
   def daily_forecast(data)
@@ -52,5 +55,6 @@ class Forecast
       end 
       days_array << day_hash
     end
+    days_array
   end
 end 
