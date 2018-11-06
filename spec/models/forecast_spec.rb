@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe Forecast do
-  # it 'exists' do
-  #   data = {  "currently": "some data",
-  #             "hourly": {"data": "hourly data"},
-  #             "daily": {"data": "daily data"}
-  #          }
-  #   forecast = Forecast.new(data)
-  # 
-  #   expect(forecast).to be_a(Forecast)
-  # end
+# describe Forecast do
+#   it 'exists' do
+#     data = {  "currently": "some data",
+#               "hourly": {"data": "hourly data"},
+#               "daily": {"data": "daily data"}
+#            }
+#     forecast = Forecast.new(data)
+# 
+#     expect(forecast).to be_a(Forecast)
+#   end
   
   # describe 'Instance Methods' do 
   #   it 'has current forecast details' do
@@ -45,4 +45,4 @@ describe Forecast do
   #     forecast = Forecast.new(data)
   #   end 
   # end
-end
+# end
