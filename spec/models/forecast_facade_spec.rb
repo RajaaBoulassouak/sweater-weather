@@ -6,6 +6,7 @@ describe ForecastFacade do
 
     expect(forecast_facade).to be_a(ForecastFacade)
   end
+end
   
   # describe 'Instance Methods' do
   #   it 'has coordinates' do
@@ -22,4 +23,3 @@ describe ForecastFacade do
   #     expect(forecast_facade.weather_forecast).to be_a(Forecast) 
   #   end
   # end
-end
