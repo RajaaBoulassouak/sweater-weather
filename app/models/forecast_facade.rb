@@ -11,11 +11,12 @@ class ForecastFacade
   
   def weather_forecast
     data = darksky_service.get_forecast(coordinates)
-    require "pry"; binding.pry
   end
   
   def weather_gifs
-    data = giphy_service.get_gifs()
+    summary = "Mostly sunny in the morning"
+    data = giphy_service.get_gifs(summary)
+    # data[:data].first[:url]
   end
   
   private 
