@@ -32,7 +32,18 @@ class ForecastFacade
         image_array << gif 
       end 
     end
-    image_array.compact
+    urls_array = []
+    image_array.compact.map do |hash|
+      url_hash = {}
+      hash.map do |key, value|
+        if key == :data 
+          url_hash[:url] = hash[:data].first[:url]
+        end 
+        urls_array << url_hash
+      end 
+    end 
+    require "pry"; binding.pry
+    urls_array
   end
   
   private 
