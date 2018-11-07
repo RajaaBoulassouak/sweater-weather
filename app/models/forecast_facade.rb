@@ -14,6 +14,21 @@ class ForecastFacade
     Forecast.new(data)
   end
   
+  def forecast_backgrounds
+    data = flickr_service.get_backgrounds(coordinates)
+    images_array = []
+    data[:photos][:photo].map do |hash|
+      image_hash = {}
+      hash.map do |key, value|
+        if key == :url_o
+          image_hash[:image_url] = value
+        end 
+      end
+      images_array << image_hash
+    end 
+    images_array.uniq
+  end
+  
   private 
   
   def geocode_service 
@@ -22,5 +37,9 @@ class ForecastFacade
   
   def darksky_service
     DarkskyService.new
+  end
+  
+  def flickr_service
+    FlickrService.new
   end
 end
